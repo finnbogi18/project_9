@@ -133,8 +133,9 @@ def top_printer(top_list):
         print()  # Prints an empty line after the top list is done
 
 
-def main():
+def main(file_object):
     main_list = make_list(file_object)
+    file_object.close()
     all_words = get_all_words(main_list)
     my_dict = paragraph_index(all_words, main_list)
     word_index_print(my_dict)
@@ -150,4 +151,4 @@ def main():
 filename = get_file_name()
 file_object = open_file(filename)
 if file_object != None:  # If the open_file function returns None, the program stops.
-    main()
+    main(file_object)
